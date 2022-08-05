@@ -2,13 +2,37 @@ package ru.job4j.forum.service;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.forum.model.Post;
+import ru.job4j.forum.repository.PostRepository;
 import ru.job4j.forum.repository.PostsMem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PostService {
 
+    private final PostRepository posts;
+
+    public PostService(PostRepository posts) {
+        this.posts = posts;
+    }
+
+    public List<Post> getAll() {
+        List<Post> rsl = new ArrayList<>();
+        posts.findAll().forEach(rsl::add);
+        return rsl;
+    }
+
+    public Post findBiId(int id) {
+        return posts.findById(id).get();
+    }
+
+    public Post updatePost(Post post) {
+        return posts.save(post);
+    }
+
+
+    /**
     private final PostsMem posts;
 
     public PostService(PostsMem posts) {
@@ -30,4 +54,5 @@ public class PostService {
     public void updatePost(Post post) {
         posts.updatePost(post);
     }
+     */
 }
