@@ -1,9 +1,15 @@
 package ru.job4j.forum.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Calendar;
 import java.util.Objects;
 
+@Data
+@RequiredArgsConstructor
 @Entity
 @Table(name = "posts")
 public class Post {
@@ -61,10 +67,10 @@ public class Post {
             return false;
         }
         Post post = (Post) o;
-        return id == post.id &&
-                Objects.equals(name, post.name) &&
-                Objects.equals(description, post.description) &&
-                Objects.equals(created, post.created);
+        return id == post.id
+                && Objects.equals(name, post.name)
+                && Objects.equals(description, post.description)
+                && Objects.equals(created, post.created);
     }
 
     @Override

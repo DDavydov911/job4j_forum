@@ -15,4 +15,4 @@ create table users (
                        password varchar(255)
 );
 
-insert into users (username, email, password) value ('123', '123', '123');
+insert into users (username, email, password) values ('123', '123', '123');
