@@ -7,6 +7,7 @@ import ru.job4j.forum.repository.PostsMem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -27,8 +28,8 @@ public class PostService {
         return posts.findById(id).get();
     }
 
-    public Post updatePost(Post post) {
-        return posts.save(post);
+    public Optional<Post> updatePost(Post post) {
+        return posts.update(post);
     }
 
 

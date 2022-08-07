@@ -29,10 +29,7 @@ public class PostsController {
 
     @PostMapping("/update")
     public String updatePost(@ModelAttribute Post post) {
-        post.setCreated(postService.findBiId(post.getId()).getCreated()); /** org.postgresql
-         .util.PSQLException: ОШИБКА: значение NULL в столбце "created" отношения "posts"
-         нарушает ограничение NOT NULL */
-         postService.updatePost(post);
+        postService.updatePost(post);
         return "redirect:/";
     }
 }
