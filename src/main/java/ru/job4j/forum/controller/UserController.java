@@ -38,15 +38,16 @@ public class UserController {
         model.addAttribute("errorMessge", errorMessge);
         return "login";
     }
-
-//    @PostMapping("/login")
-//    public String login(@RequestParam String username,
-//    @RequestParam String password, Model model) {
-//        model.addAttribute("user", userService.findUserByEmailAndPassword(
-//                username, password)
-//        );
-//        return "redirect:/index";
-//    }
+/**
+    @PostMapping("/login")
+    public String login(@RequestParam String username,
+    @RequestParam String password, Model model) {
+        model.addAttribute("user", userService.findUserByEmailAndPassword(
+                username, password)
+        );
+        return "redirect:/index";
+    }
+*/
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
@@ -68,22 +69,26 @@ public class UserController {
         System.out.println(user);
             userService.save(user);
             return "redirect:/login";
-//        if (userService.findUserByName(user.getUsername()).isEmpty()) {
-//        }
-//        model.addAttribute("errorMessage", "Username already exists");
-//        return "reg";
+            /**
+        if (userService.findUserByName(user.getUsername()).isEmpty()) {
+        }
+        model.addAttribute("errorMessage", "Username already exists");
+        return "reg";
+             */
     }
 
-//    @PostMapping("/reg2")
-//    public String regSave(@ModelAttribute User user, Model model) {
-//        user.setEnabled(true);
-//        user.setPassword(encoder.encode(user.getPassword()));
-//        user.setAuthority(authorities.findByAuthority("ROLE_USER"));
-//        if (users.findByName(user.getUsername()).isEmpty()) {
-//            users.save(user);
-//            return "redirect:/login";
-//        }
-//        model.addAttribute("errorMessage", "Username already exists");
-//        return "reg";
-//    }
+    /**
+    @PostMapping("/reg2")
+    public String regSave(@ModelAttribute User user, Model model) {
+        user.setEnabled(true);
+        user.setPassword(encoder.encode(user.getPassword()));
+        user.setAuthority(authorities.findByAuthority("ROLE_USER"));
+        if (users.findByName(user.getUsername()).isEmpty()) {
+            users.save(user);
+            return "redirect:/login";
+        }
+        model.addAttribute("errorMessage", "Username already exists");
+        return "reg";
+    }
+     */
 }
