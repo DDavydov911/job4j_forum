@@ -2,8 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
+<c:if test="${not empty errorMessage}">
+    <div style="color:red; font-weight: bold; margin: 30px 0px;">
+            ${errorMessage}
+    </div>
+</c:if>
 <form name='reg' action="<c:url value='/reg'/>" method='POST'>
-    <input type='hidden' name='id' value="0">
     <table>
         <tr>
             <td>UserName:</td>

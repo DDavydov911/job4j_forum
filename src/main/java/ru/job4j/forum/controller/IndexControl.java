@@ -19,10 +19,4 @@ public class IndexControl {
         model.addAttribute("posts", posts.getAll());
         return "index";
     }
-
-    @GetMapping({"logout"})
-    public String logout(Model model) {
-        model.addAttribute("posts", posts.getAll());
-        return "index";
-    }
 }

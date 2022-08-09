@@ -15,12 +15,11 @@ public class UserMem {
     private final AtomicInteger id = new AtomicInteger(0);
     private final Map<Integer, User> users = new ConcurrentHashMap();
 
-
     public UserMem() {
         users.put(1, new User(1, "Jhon", "jhon@email.com", "123"));
     }
 
-    public Optional<User> findUserByEmailAndPswd(String email, String pass) {
+    public Optional<User> findUserByEmailAndPassword(String email, String pass) {
         return users.values()
                 .stream()
                 .filter(
