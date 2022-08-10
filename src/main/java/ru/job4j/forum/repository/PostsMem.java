@@ -12,7 +12,6 @@ public class PostsMem {
     private final AtomicInteger id = new AtomicInteger(0);
     private final Map<Integer, Post> posts = new ConcurrentHashMap();
 
-
     public PostsMem() {
         Post p1 = Post.of("Post 1");
         p1.setId(id.incrementAndGet());
@@ -45,7 +44,6 @@ public class PostsMem {
     public Post findById(int id) {
         return posts.get(id);
     }
-
 
     public void updatePost(Post post) {
         posts.replace(post.getId(), post);

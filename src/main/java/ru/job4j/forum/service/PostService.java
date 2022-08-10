@@ -31,29 +31,4 @@ public class PostService {
     public Optional<Post> updatePost(Post post) {
         return posts.update(post);
     }
-
-
-    /**
-    private final PostsMem posts;
-
-    public PostService(PostsMem posts) {
-        this.posts = posts;
-    }
-
-    public Post addPost(Post post) {
-        return posts.addPost(post);
-    }
-
-    public List<Post> getAll() {
-        return posts.getAll();
-    }
-
-    public Post findBiId(int id) {
-        return posts.findById(id);
-    }
-
-    public void updatePost(Post post) {
-        posts.updatePost(post);
-    }
-     */
 }
