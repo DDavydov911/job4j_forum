@@ -8,11 +8,21 @@ create table posts (
 insert into posts (name) values ('О чем этот форум?');
 insert into posts (name) values ('Правила форума.');
 
-create table users (
-                       id serial primary key,
-                       username varchar(2000),
-                       email varchar(255),
-                       password varchar(255)
+CREATE TABLE authorities (
+                             id serial primary key,
+                             authority VARCHAR(50) NOT NULL unique
 );
 
-insert into users (username, email, password) values ('123', '123', '123');
+insert into authorities (authority) values ('ROLE_USER');
+insert into authorities (authority) values ('ROLE_ADMIN');
+
+
+create table users (
+                       id serial primary key,
+                       username VARCHAR(255) NOT NULL unique,
+                       email varchar(255),
+                       password varchar(255) not null,
+                       enabled boolean default true,
+                       authority_id int not null references authorities(id)
+);
+

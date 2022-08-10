@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import ru.job4j.forum.model.User;
 import ru.job4j.forum.repository.UserRepository;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -13,8 +15,8 @@ public class UserService {
         this.users = users;
     }
 
-    public User findUserByEmailAndPassword(String email, String password) {
-        return users.findUserByEmailAndPassword(email, password).get();
+    public User findUserByUsernameAndPassword(String email, String password) {
+        return users.findUserByUsernameAndPassword(email, password).get();
     }
 
     public void save(User user) {
@@ -22,7 +24,7 @@ public class UserService {
         users.save(user);
     }
 
-    public User findUserByName(String name) {
-        return users.findUserByName(name).get();
+    public Optional<User> findUserByName(String name) {
+        return users.findUserByName(name);
     }
 }

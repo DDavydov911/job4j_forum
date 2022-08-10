@@ -27,25 +27,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         auth
                 .jdbcAuthentication()
                 .dataSource(ds)
-                .usersByUsernameQuery("select username, password "
+                .usersByUsernameQuery("select username, password, enabled "
                         + "from users "
                         + "where username = ?")
                 .authoritiesByUsernameQuery(
-                        " select u.username, u.password "
-                                + "from users as u "
-                                + "where u.username = ?");
+                        " select u.username, a.authority "
+                                + "from authorities as a, users as u "
+                                + "where u.username = ? and u.authority_id = a.id");
     }
-/**
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .passwordEncoder(passwordEncoder)
-                .withUser("user").password(passwordEncoder.encode("123456")).roles("USER")
-                .and()
-                .withUser("admin")
-                .password(passwordEncoder.encode("123456")).roles("USER", "ADMIN");
-    }
-*/
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -58,7 +47,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login", "/reg")
                 .permitAll()
                 .antMatchers("/**")
-                .hasAnyRole()
+                .hasAnyRole("ADMIN", "USER")
                 .and()
                 .formLogin()
                 .loginPage("/login")

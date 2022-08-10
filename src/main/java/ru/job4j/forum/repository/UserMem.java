@@ -1,7 +1,7 @@
 package ru.job4j.forum.repository;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+import ru.job4j.forum.model.Authority;
 import ru.job4j.forum.model.User;
 
 import java.util.Map;
@@ -16,14 +16,15 @@ public class UserMem {
     private final Map<Integer, User> users = new ConcurrentHashMap();
 
     public UserMem() {
-        users.put(1, new User(1, "Jhon", "jhon@email.com", "123"));
+        Authority auth = new Authority();
+        users.put(1, new User(1, "123", "123", auth, true));
     }
 
     public Optional<User> findUserByEmailAndPassword(String email, String pass) {
         return users.values()
                 .stream()
                 .filter(
-                        user -> email.equals(user.getEmail()) && pass.equals(user.getPassword())
+                        user -> email.equals(user.getUsername()) && pass.equals(user.getPassword())
                 )
                 .findFirst();
     }

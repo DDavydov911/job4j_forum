@@ -3,13 +3,11 @@ package ru.job4j.forum.repository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 import ru.job4j.forum.model.Post;
 
 import javax.transaction.Transactional;
 import java.util.Optional;
 
-@Repository
 public interface PostRepository extends CrudRepository<Post, Integer> {
 
    @Transactional

@@ -21,14 +21,10 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse">
             <div class="navbar-nav">
-                <a href="<c:url value='/login'/>">Войти</a>
+                <span><c:out value="${user}"/></span>
             </div>
         </div>
-        <div class="collapse navbar-collapse">
-            <div class="navbar-nav">
-                <a href="<c:url value='/reg'/>">Зарегистрироваться</a>
-            </div>
-        </div>
+
         <div class="collapse navbar-collapse">
             <div class="navbar-nav">
                 <a href="<c:url value='/logout'/>">Выйти</a>
