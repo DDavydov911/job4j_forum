@@ -103,4 +103,5 @@ public class PostControlTest {
         verify(postService).updatePost(argument.capture());
         assertThat(argument.getValue().getName(), is("Куплю ладу-грант. Дорого."));
     }
+
 }
