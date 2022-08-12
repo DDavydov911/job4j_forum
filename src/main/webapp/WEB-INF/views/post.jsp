@@ -22,6 +22,13 @@
                 <a href="<c:url value='/update?id=${post.id}'/>">Редактировать пост</a>
             </div>
         </div>
+
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+                <a href="<c:url value='/index'/>">Все посты</a>
+            </div>
+        </div>
+
         <div class="collapse navbar-collapse">
             <div class="navbar-nav">
                 <a href="<c:url value='/logout'/>">Выйти</a>

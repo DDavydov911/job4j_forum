@@ -27,6 +27,12 @@
 
         <div class="collapse navbar-collapse">
             <div class="navbar-nav">
+                <span>Создание нового поста</span>
+            </div>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
                 <a href="<c:url value='/index'/>">Все посты</a>
             </div>
         </div>
@@ -39,20 +45,19 @@
     </nav>
     <div class="row">
         <div class="card-body">
-            <form action="<c:url value='/update'/>" method='POST'>
-                <input type="hidden" name="id" value="${post.id}"/>
+            <form action="<c:url value='/post/create'/>" method='POST'>
 
                 <div class="form-group">
                     <label for="name">Тема:</label>
-                    <input type="text" class="form-control" value="${post.name}" name="name" id="name" >
+                    <input type="text" class="form-control" name="name" id="name" >
                 </div>
 
                 <div class="form-group">
                     <label for="text">Описание:</label>
-                    <input type="text" class="form-control" value="${post.description}" name="description" id="text">
+                    <input type="text" class="form-control"  name="description" id="text">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <button type="submit" class="btn btn-primary">Создать</button>
             </form>
         </div>
     </div>
@@ -67,4 +72,3 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
-</html>

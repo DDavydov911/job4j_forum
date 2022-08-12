@@ -27,6 +27,12 @@
 
         <div class="collapse navbar-collapse">
             <div class="navbar-nav">
+                <a href="<c:url value='/post/create'/>">Новый пост</a>
+            </div>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
                 <a href="<c:url value='/logout'/>">Выйти</a>
             </div>
         </div>

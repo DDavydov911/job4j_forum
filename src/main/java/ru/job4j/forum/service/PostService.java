@@ -3,7 +3,6 @@ package ru.job4j.forum.service;
 import org.springframework.stereotype.Service;
 import ru.job4j.forum.model.Post;
 import ru.job4j.forum.repository.PostRepository;
-import ru.job4j.forum.repository.PostsMem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +23,15 @@ public class PostService {
         return rsl;
     }
 
-    public Post findBiId(int id) {
+    public Post findById(int id) {
         return posts.findById(id).get();
     }
 
     public Optional<Post> updatePost(Post post) {
         return posts.update(post);
+    }
+
+    public Post create(Post post) {
+        return posts.save(post);
     }
 }
